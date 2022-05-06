@@ -1,0 +1,28 @@
+{%  extends 'todobase/main.html' %}
+
+{% block content %}
+
+<div>
+    <h3>ToDo</h3>
+    <form method="POST" action="/">
+        {% csrf_token %}
+        {{form.title}}
+        <input type="submit" name="Create-List">
+    </form>
+    <br>
+    {% for task in list %}
+        <div>
+            <a href="{% url 'update_list' task.id %}">Update</a>
+            <a href="{% url 'delete' task.id %}">Delete</a>
+            {% if task.complete  == True %}
+            <strike>{{task}}</strike>
+            {% else %}
+            <span>{{task}}</span>
+            {% endif %}
+        </div>
+
+    {% endfor %}
+</div>
+
+{% endblock content %}
+

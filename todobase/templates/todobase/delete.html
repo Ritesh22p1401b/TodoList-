@@ -1,0 +1,12 @@
+{% block content %}
+
+<div>
+    <p>Are you sure you want to delete? '{{item}}'</p>
+    <a href="{% url 'home'  %}" >Cancel</a>
+    <form method="POST" action="">
+        {% csrf_token %}
+        <input type="submit" name="confirm">
+    </form>
+</div>
+
+{% endblock content %}
