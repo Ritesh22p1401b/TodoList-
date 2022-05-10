@@ -1,11 +1,33 @@
 {% block content %}
 
-<div>
+<style>
+    body{
+        background: #75afec;
+    }
+    .update-container{
+        width:400px;
+		margin: 20px auto;
+		padding:20px;
+		background-color: #fff;
+		border-radius: 3px;
+		box-shadow: 6px 2px 30px 0px rgba(0,0,0,0.75);
+        background: #fff;
+    }
+
+    .btn{
+        padding: 8px;
+        color:#fff;
+        background-color: #75afec;
+    }
+    
+</style>
+
+<div class="update-container">
     <h3>Update</h3>
     <form method="POST" action="">
         {%  csrf_token %}
         {{form}}
-        <input type="submit" name="udate_list">
+        <input class="btn" type="submit" name="udate_list">
     </form>
 </div>
 
